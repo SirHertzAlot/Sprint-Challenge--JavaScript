@@ -6,6 +6,15 @@
   * The last parameter accepts a callback
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
 */
+function consume(a,b, callback){
+  return callback(a,b);
+}
+concat = (a,b) =>{
+  return "I'm hungry. " + "I'm going to cook something to eat."
+
+}
+
+console.log(consume(1,2,concat));
 
 
 /* Step 2: Create several functions to callback with consume();
@@ -13,7 +22,32 @@
   * Create a function named multiply that returns the product of two numbers 
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
+/* Sum of two numbers */
+sum = (a, b) => {
+  return a + b;
+}
 
+console.log(consume(1, 2, sum));
+
+/*Multiply two numbers*/
+multiply = (a, b) => {
+  return a * b;
+}
+
+console.log(consume(1, 2, multiply));
+
+/*Greeting*/
+greeting = (firstName,lastName) => {
+  return `Hello, ${firstName} ${lastName}, nice to meet you.`;
+}
+
+function greetingWithNames(callback) {
+  const firstName = 'Craig';
+  const lastName = 'Friday';
+  callback(firstName,lastName);
+}
+
+greeting(greetingWithNames);
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
 // console.log(consume(2, 2, add)); // 4
