@@ -23,11 +23,11 @@ console.log(consume(1,2,concat));
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
 /* Sum of two numbers */
-sum = (a, b) => {
+add = (a, b) => {
   return a + b;
 }
 
-console.log(consume(1, 2, sum));
+console.log(consume(1, 2, add));
 
 /*Multiply two numbers*/
 multiply = (a, b) => {
@@ -37,29 +37,30 @@ multiply = (a, b) => {
 console.log(consume(1, 2, multiply));
 
 /*Greeting*/
-greeting = (firstName,lastName) => {
-  return `Hello, ${firstName} ${lastName}, nice to meet you.`;
+
+function greeting(name,name2){
+  console.log(`Hello, ${name} ${name2}, nice to meet you.`);
 }
 
 function greetingWithNames(callback) {
-  const firstName = 'Craig';
-  const lastName = 'Friday';
-  callback(firstName,lastName);
+  const fn = 'Craig';
+  const ln = 'Friday';
+  callback(fn,ln);
 }
 
-greeting(greetingWithNames);
+greetingWithNames(greeting);
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+ console.log(consume(2, 2, add)); // 4
+ console.log(consume(10, 16, multiply)); // 160
+ console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 // ==== Closures ==== 
 
 // Explain in your own words why nestedfunction can access the variable internal.
 
-// Explanation: 
+// Explanation: This function is accessible because it's inside the scope of my function. When my function executes so will nestedFunction as well.
 
 
 const external = "I'm outside the function";
